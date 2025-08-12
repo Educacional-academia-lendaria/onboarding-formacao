@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Formação Lendár[IA] - Academia Lendár[IA]™</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #0a0a0a;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #CABE96;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(202, 190, 150, 0.1) 0%, transparent 70%);
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 10px rgba(255, 68, 68, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(255, 68, 68, 0.6); }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 .highlight {
+            background: linear-gradient(45deg, #CABE96, #9BA063);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Section */
+        .section {
+            padding: 60px 0;
+            background: #111;
+            margin-bottom: 2px;
+        }
+        
+        .section-alt {
+            background: #0a0a0a;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #CABE96, #9BA063);
+        }
+        
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #CABE96, #9BA063);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(202, 190, 150, 0.1);
+            border-color: rgba(202, 190, 150, 0.3);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #CABE96;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+        
+        .benefit-card h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .benefit-card p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+        
+        /* Schedule Cards */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .schedule-card {
+            background: linear-gradient(135deg, rgba(202, 190, 150, 0.1), rgba(155, 160, 99, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(202, 190, 150, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .schedule-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(202, 190, 150, 0.2);
+        }
+        
+        .schedule-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .schedule-card h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .schedule-card p {
+            color: #a0a0a0;
+        }
+        
+        /* Steps */
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #CABE96;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #CABE96, #9BA063);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+        
+        .step-content h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .step-content p {
+            color: #a0a0a0;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            color: #fff;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 68, 68, 0.3);
+            margin: 20px 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 68, 68, 0.5);
+        }
+        
+        .cta-button i {
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+        
+        /* Alert Box */
+        .alert-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .alert-box .alert-icon {
+            font-size: 3rem;
+            color: #ff4444;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+        
+        .alert-box h3 {
+            color: #ff4444;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .alert-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .alert-list li {
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .alert-list li::before {
+            content: '⚡';
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer Note */
+        .footer-note {
+            background: #000;
+            color: #ff4444;
+            padding: 30px;
+            text-align: center;
+            border: 2px dashed #ff4444;
+            border-radius: 15px;
+            margin: 50px 0;
+            font-style: italic;
+            animation: subtle-glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes subtle-glow {
+            0% { box-shadow: 0 0 10px rgba(255, 68, 68, 0.2); }
+            100% { box-shadow: 0 0 20px rgba(255, 68, 68, 0.4); }
+        }
+        
+        .footer-note strong {
+            color: #ff6666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid,
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 0 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Academia Lendár<span>[IA]</span>™</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                80% DE TAXA DE SUCESSO
+            </div>
+            <h1>
+                Onboarding da <span class="highlight">Formação Lendária</span>
+            </h1>
+            <p class="subtitle">
+                Boas-vindas e visão geral do que você comprou
+            </p>
+            
+            <div style="margin-top: 30px;">
+                <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                    🎯 GARANTIR MINHA VAGA →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Seu Primeiro Passo na Jornada</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #a0a0a0; margin-bottom: 50px;">
+                O Onboarding em grupo é o seu primeiro passo na Formação Lendária. Neste encontro você vai:
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🗂️</div>
+                    <h3>Estrutura Completa</h3>
+                    <p>Entender a estrutura completa do programa e como navegar por todos os módulos</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛠️</div>
+                    <h3>Ferramentas Disponíveis</h3>
+                    <p>Conhecer todas as ferramentas e recursos que você terá acesso durante a formação</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎧</div>
+                    <h3>Suporte Máximo</h3>
+                    <p>Descobrir como aproveitar ao máximo todo o suporte disponível para seu sucesso</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Networking</h3>
+                    <p>Conectar-se com outros alunos iniciantes e formar sua rede de contatos</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">❓</div>
+                    <h3>Tire Dúvidas</h3>
+                    <p>Esclarecer suas primeiras dúvidas com especialistas da Academia</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                    🚀 AGENDAR MEU ONBOARDING →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Horários Disponíveis</h2>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <div class="schedule-icon">📅</div>
+                    <h3>Dias da Semana</h3>
+                    <p>Segunda a Sexta</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-icon">⏰</div>
+                    <h3>Múltiplos Horários</h3>
+                    <p>Vários horários para sua conveniência</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-icon">💻</div>
+                    <h3>Online ao Vivo</h3>
+                    <p>Formato totalmente online</p>
+                </div>
+                
+                <div class="schedule-card">
+                    <div class="schedule-icon">⏱️</div>
+                    <h3>1 Hora</h3>
+                    <p>Duração média do encontro</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                    📅 ESCOLHER HORÁRIO →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Schedule -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Como Agendar</h2>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Clique e Agende</h4>
+                        <p>Clique no botão abaixo e agende seu Onboarding</p>
+                        <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                            🚀 AGENDAR ONBOARDING →
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Escolha Data e Horário</h4>
+                        <p>Selecione o melhor dia e horário que se encaixe na sua agenda</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Preencha os Dados</h4>
+                        <p>Complete o formulário com suas informações de contato</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Confirme Participação</h4>
+                        <p>Finalize o agendamento e confirme sua participação</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation Info -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Link de Participação</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Na Sua Agenda</h3>
+                    <p>O link de participação é automaticamente adicionado na agenda do seu email</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔔</div>
+                    <h3>Lembretes Automáticos</h3>
+                    <p>Enviamos lembretes 3 dias antes, 24 horas antes e 30 minutos antes por email</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">✉️</div>
+                    <h3>No Seu Email</h3>
+                    <p>Todos os lembretes são enviados para o email usado no agendamento</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                    ✉️ GARANTIR MINHA VAGA →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Info -->
+    <section class="section">
+        <div class="container">
+            <div class="alert-box">
+                <div class="alert-icon">⚠️</div>
+                <h3>Informações Importantes</h3>
+                <ul class="alert-list">
+                    <li>Chegue 5 minutos antes do horário agendado</li>
+                    <li>Prepare suas principais dúvidas sobre o programa</li>
+                    <li>Tenha o Obsidian aberto para fazer anotações</li>
+                    <li>Garanta uma boa conexão de internet</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                        ⚡ AGENDAR AGORA →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendly Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="text-align: center;">
+                <h2 class="section-title">Calendly</h2>
+                <p style="font-size: 1.3rem; color: #a0a0a0; margin-bottom: 30px;">
+                    <strong>Onboarding Formação Lendária - Academia Lendár[IA]™</strong>
+                </p>
+                <a href="https://cal.com/team/academia-lendaria-cs/formacao-lendar-ia-onboarding" class="cta-button" target="_blank">
+                    📅 ACESSAR CALENDLY 🔗
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
